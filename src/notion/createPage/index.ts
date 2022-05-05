@@ -2,7 +2,8 @@ import { CreatePageResponse } from "@notionhq/client/build/src/api-endpoints";
 import notion from "../client";
 
 export async function createPage(
-  parentDatabeseId: string
+  parentDatabeseId: string,
+  pageTitle: string
 ): Promise<CreatePageResponse> {
   return notion.pages.create({
     parent: {
@@ -14,7 +15,7 @@ export async function createPage(
         title: [
           {
             text: {
-              content: "hogefuga",
+              content: pageTitle,
             },
           },
         ],
